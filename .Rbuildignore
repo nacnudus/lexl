@@ -1,0 +1,12 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^LICENSE\.md$
+^codecov\.yml$
+^cran-comments\.md$
+^\.travis\.yml$
+^tags$
+^shiny$
+^shiny/rsconnect$
+^appveyor\.yml$
+^README\.Rmd$
+^docs$

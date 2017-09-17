@@ -1,0 +1,73 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-"
+)
+```
+# lexl
+
+[![Travis build status](https://travis-ci.org/nacnudus/lexl.svg?branch=master)](https://travis-ci.org/nacnudus/lexl)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/nacnudus/lexl?branch=master&svg=true)](https://ci.appveyor.com/project/nacnudus/lexl)
+[![CRAN status](http://www.r-pkg.org/badges/version/lexl)](https://cran.r-project.org/package=lexl)
+[![CRAN Downloads](https://cranlogs.r-pkg.org/badges/lexl)](https://www.r-pkg.org/pkg/lexl)
+[![Coverage status](https://codecov.io/gh/nacnudus/lexl/branch/master/graph/badge.svg)](https://codecov.io/github/nacnudus/lexl?branch=master)
+
+[lexl](https://github.com/nacnudus/lexl) separates Excel formulas into tokens of
+different types, and gives their depth within a nested formula.  Its name is a
+bad pun on 'Excel' and 'lexer'.  Try the [online
+demo](https://duncan-garmonsway.shinyapps.io/lexl/) or run `demo_lexl()`
+locally.
+
+## Installation
+
+You can install lexl from github with:
+
+```{r gh-installation, eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("nacnudus/lexl")
+```
+
+## Example
+
+```{r, fig.width = 7, fig.height = 5}
+library(lexl)
+x <- lex_xl("MIN(3,MAX(2,A1))")
+x
+
+plot(x) # Requires the ggraph package
+```
+
+## Parse tree
+
+Not all parse trees are the same.  The one given by `lex_xl()` is intended for
+analysis, rather than for computation.  Examples of the kind of analysis that it
+might support are:
+
+* Detecting constants that have been embedded inside formulas, rather than in
+  cells referred to by formulas.
+* Revealing which functions and combinations of functions are most common.
+* Untangling the dependencies between cells in a spreadsheet.
+
+## Where to find specimen formulas
+
+The [tidyxl](https://nacnudus.github.io/tidyxl) package imports formulas from
+xlsx (spreadsheet) files.
+
+The [Enron
+corpus](https://figshare.com/articles/Enron_Spreadsheets_and_Emails/1221767)
+contains thousands of real-life spreadsheets.
+
+## Inspiration
+
+The
+[research](https://drive.google.com/file/d/0B79P2Uym3JjvMjlaWWtnTWRLQmc/view?usp=sharing)
+Felienne Hermans inspired this package, and the related
+[XLParser](https://github.com/spreadsheetlab/XLParser) project was a great help
+in creating the grammar.
