@@ -20,7 +20,7 @@ demo_lexl <- function() {
   } else {
     shiny::shinyApp(
       ui = shiny::fluidPage(
-        shiny::titlePanel(shiny::HTML("Demo of <b><a href=\"https://nacnudus.github.io/lexl/\">lexl</a></b>::<b><a href=\"https://nacnudus.github.io/lexl/articles/smells.html\">lexl()</a></b>: Tokenize Excel formulas with R")),
+        shiny::titlePanel(shiny::HTML("Demo of <b><a href=\"https://nacnudus.github.io/lexl/\">lexl</a></b>::<b><a href=\"https://nacnudus.github.io/lexl/articles/lex-xl.html\">lexl()</a></b>: Tokenize Excel formulas with R")),
         shiny::sidebarLayout(
           shiny::sidebarPanel(
             width = 3,
