@@ -1,8 +1,9 @@
 library(lexl)
+library(ggraph)
 
 shiny::shinyApp(
   ui = shiny::fluidPage(
-    shiny::titlePanel(shiny::HTML("Demo of <b><a href=\"https://nacnudus.github.io/tidyxl/\">tidyxl</a></b>::<b><a href=\"https://nacnudus.github.io/tidyxl/articles/smells.html\">lexl()</a></b>: Tokenize Excel formulas with R")),
+    shiny::titlePanel(shiny::HTML("Demo of <b><a href=\"https://nacnudus.github.io/lexl/\">lexl</a></b>::<b><a href=\"https://nacnudus.github.io/lexl/articles/lex-xl.html\">lexl()</a></b>: Tokenize Excel formulas with R")),
     shiny::sidebarLayout(
       shiny::sidebarPanel(
         width = 3,
@@ -22,7 +23,7 @@ shiny::shinyApp(
     parse_tree <- shiny::reactive({
       lex_xl(input$formula)
     })
-    output$call <- shiny::renderText(paste0("<pre>library(tidyxl)\n",
+    output$call <- shiny::renderText(paste0("<pre>library(lexl)\n",
                                             "parse_tree <- lex_xl(\"",
                                               input$formula,
                                             "\")\n",
@@ -30,7 +31,7 @@ shiny::shinyApp(
                                             "plot(parse_tree)"))
     output$tree <- shiny::renderTable({parse_tree()})
     output$plot <- shiny::renderPlot({
-      plot(lex_lx(input$formula))
+      plot(lex_xl(input$formula))
     })
   })
 
