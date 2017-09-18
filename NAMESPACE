@@ -2,6 +2,7 @@
 
 S3method(plot,lexl)
 export(demo_lexl)
+export(is_range)
 export(lex_xl)
 export(lexl_edges)
 export(lexl_igraph)

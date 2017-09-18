@@ -22,6 +22,7 @@ to install).
 
 \itemize{
 \item \code{\link[lexl:lex_xl]{lexl::lex_xl()}} Tokenise (lex) an Excel formula.
+\item \code{\link[lexl:is_range]{lexl::is_range()}} Test whether an Excel formula refers to a range of cells
 \item \code{\link[lexl:lexl_igraph]{plot()}} Draw a simple tree plot of a parse tree from \code{\link[lexl:lex_xl]{lexl::lex_xl()}}
 \item \code{\link[lexl:lexl_edges]{lexl::lexl_edges()}} Utility function used by \code{\link[lexl:lexl_igraph]{plot()}}
 \item \code{\link[lexl:lexl_vertices]{lexl::lexl_vertices()}} Utility function used by \code{\link[lexl:lexl_igraph]{plot()}}
