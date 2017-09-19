@@ -1,0 +1,170 @@
+---
+title: "Developer Notes"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## What does it do?
+
+`lexl` tokenises Excel formulas into some kind of parse tree, represented by a
+data frame with three columns: the tokens themselves, the type,
+and the level within the nested structure.
+
+## How does tokenise formulas?
+
+The bulk of the work is done by a parser generator, according to a grammer
+defined in `src/token_grammar.h`.
+
+### What is a parser generator?
+
+A parser generator is a kind of supercharged REGEX engine, which allows actions
+to be carried out upon each successful match of a particular group within the
+overall pattern.  I don't know much about parser generators, so the rest of this
+
+For example, in REGEX you might define a group by enclosing it within
+parentheses, so that `Na(na)* Batman` would match `Nanana Batman` as well as
+`Nananananananana Batman`.  With a parser generator, the pattern between the
+parentheses is called a 'rule', and there is nothing that isn't a rule -- even
+string literals must be set up as rules.
+
+Any action defined for a given rule/group/pattern/what-you-will is carried out
+whenever the rule is successfully matched.  For example, you could define an
+action that prints `"Hey Jude?"`, to be carried out when the rule `(na)` is
+matched.  Given the Batman string above, it that action would be performed
+several times.
+
+Rules can be disabled, and there are some tricks you can pull to have them act
+differently depending on the current state, but really they're pretty
+inflexible.  The most annoying problem is backtracking.
+
+### Backtracking
+
+This can happen when a rule is composed of subrules.  The parser attempts to
+match the whole rule, and does not fail until it has already matched some of the
+subrules.  The parser will 'wind the tape back' (go back to the place in the
+string where it started to match the overall rule), but any actions defined on
+the subrules will already have been performed.
+
+For example, if the overall rule is `Na(na)* Batman`, and the string to be
+matched is `Nananananananana Robin`, then `"Hey Jude?"` would still be printed
+several times before the overall rule failed to match.
+
+`xlex` avoids this problem by disabling certain rules.  The trade-off is that it
+the resulting parse tree isn't very detailed.  If it needs to become more
+detailed, then I must either become wickedly clever, or re-implement the grammer
+using `boost::spirit` (which can do something about backtracking, albeit slow),
+or parse the affected tokens a second time, using another grammer.
+
+## TODO
+
+### Pretty print abstract syntax tree in console
+
+A minimum thing would be like:
+
+```
+print(lex_xl("MIN(3,MAX(2,A1))"))
+\- root
+ \- MIN
+ \- (
+  \- 3
+  \- ,
+  \- MAX
+  \- (
+   \- 2
+   \- ,
+   \- A1
+  \- )
+ \- )
+```
+
+Or without the parentheses
+
+```
+print(lex_xl("MIN(3,MAX(2,A1))"))
+\- root
+ \- MIN
+  \- 3
+  \- ,
+  \- MAX
+   \- 2
+   \- ,
+   \- A1
+```
+
+Or in pseudo-`plyr::ast()` [style](http://adv-r.had.co.nz/Expressions.html) (via
+Jenny Bryan), thinking of something clever for operators.  Excel doesn't have
+inline function definitions, and function arguments are positional, not named,
+so pairlists can be ignored.
+
+```
+print(lex_xl("MIN(3,MAX(2,A1))"))
+\- root
+ \- ()
+  \- `MIN
+  \- 3
+  \- ()
+   \- `MAX
+   \- 2
+   \- `A1
+```
+
+Operators would have to be handled using associativity.  Fortunately, Excel
+operators are consistently left-associative (so in Excel `2^2^3` is 64, whereas
+in R and most other languages it is 256), which makes the logic easier.
+
+#### API
+
+* As an S3 override of `plot()`?
+* As a separate function `lex_tree()`?
+
+I think it's important that users realise it's just a data frame.  How does
+data.tree do it?
+
+### Evaluate formulas
+
+This might well be possible using `shiny`.  Joe Cheng kindly wrote me an
+demo of general reactivity.
+
+```{r, eval = FALSE}
+library(shiny)
+
+a <- reactiveVal(0)
+b <- reactive(-a())
+c <- observe(print(b()))
+
+shiny:::flushReact()
+
+
+workbook <- new.env()
+
+# For each formula cell
+workbook[[cell_id]] <- reactive({
+  # formula
+  workbook[["other_cell"]]()
+})
+
+# For each value cell
+workbook[[cell_id]] <- reactiveVal(initialValue)
+```
+
+References to external files (`[0]Sheet1!A1`) would have to be resolved to find
+their value.  Fortunately these values are written into the local file.
+
+### Improve coverage
+
+Does RSelenium work on remote virtual machines?  Only if they have a real
+browser installed.
+
+https://cran.r-project.org/web/packages/RSelenium/vignettes/shinytesting.html,
+local copy via `vignette("shinytesting", "RSelenium")`.
