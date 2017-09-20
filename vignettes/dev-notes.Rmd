@@ -161,10 +161,6 @@ workbook[[cell_id]] <- reactiveVal(initialValue)
 References to external files (`[0]Sheet1!A1`) would have to be resolved to find
 their value.  Fortunately these values are written into the local file.
 
-### Improve coverage
+### Test Shiny
 
-Does RSelenium work on remote virtual machines?  Only if they have a real
-browser installed.
-
-https://cran.r-project.org/web/packages/RSelenium/vignettes/shinytesting.html,
-local copy via `vignette("shinytesting", "RSelenium")`.
+Use [shinytest](https://rstudio.github.io/shinytest/articles/shinytest.html)
