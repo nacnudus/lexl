@@ -14,7 +14,7 @@
 is_range <- function(x) {
   is_range_scalar <- function(y) {
     # Contiguous sequence of ref[(union or intersection operator)ref]*
-    tokens <- xlex(y)
+    tokens <- lex_xl(y)
     tokens <- tokens[tokens$type != "sheet", ]
     # Now all refs should be comma-or-space-separated
     len <- nrow(tokens)
