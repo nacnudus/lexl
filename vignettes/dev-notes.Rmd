@@ -60,7 +60,7 @@ For example, if the overall rule is `Na(na)* Batman`, and the string to be
 matched is `Nananananananana Robin`, then `"Hey Jude?"` would still be printed
 several times before the overall rule failed to match.
 
-`xlex` avoids this problem by disabling certain rules.  The trade-off is that it
+`lex_xl` avoids this problem by disabling certain rules.  The trade-off is that it
 the resulting parse tree isn't very detailed.  If it needs to become more
 detailed, then I must either become wickedly clever, or re-implement the grammer
 using `boost::spirit` (which can do something about backtracking, albeit slow),

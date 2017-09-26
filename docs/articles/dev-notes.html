@@ -70,7 +70,7 @@
     <div class="page-header toc-ignore">
       <h1>Developer Notes</h1>
             
-            <h4 class="date">2017-09-19</h4>
+            <h4 class="date">2017-09-26</h4>
           </div>
 
     
@@ -98,7 +98,7 @@
 <a href="#backtracking" class="anchor"></a>Backtracking</h3>
 <p>This can happen when a rule is composed of subrules. The parser attempts to match the whole rule, and does not fail until it has already matched some of the subrules. The parser will ‘wind the tape back’ (go back to the place in the string where it started to match the overall rule), but any actions defined on the subrules will already have been performed.</p>
 <p>For example, if the overall rule is <code>Na(na)* Batman</code>, and the string to be matched is <code>Nananananananana Robin</code>, then <code>"Hey Jude?"</code> would still be printed several times before the overall rule failed to match.</p>
-<p><code>xlex</code> avoids this problem by disabling certain rules. The trade-off is that it the resulting parse tree isn’t very detailed. If it needs to become more detailed, then I must either become wickedly clever, or re-implement the grammer using <code>boost::spirit</code> (which can do something about backtracking, albeit slow), or parse the affected tokens a second time, using another grammer.</p>
+<p><code>lex_xl</code> avoids this problem by disabling certain rules. The trade-off is that it the resulting parse tree isn’t very detailed. If it needs to become more detailed, then I must either become wickedly clever, or re-implement the grammer using <code>boost::spirit</code> (which can do something about backtracking, albeit slow), or parse the affected tokens a second time, using another grammer.</p>
 </div>
 </div>
 <div id="todo" class="section level2">
@@ -177,11 +177,10 @@ workbook[[cell_id]] &lt;-<span class="st"> </span><span class="kw"><a href="http
 workbook[[cell_id]] &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/shiny/topics/reactiveVal">reactiveVal</a></span>(initialValue)</code></pre></div>
 <p>References to external files (<code>[0]Sheet1!A1</code>) would have to be resolved to find their value. Fortunately these values are written into the local file.</p>
 </div>
-<div id="improve-coverage" class="section level3">
+<div id="test-shiny" class="section level3">
 <h3 class="hasAnchor">
-<a href="#improve-coverage" class="anchor"></a>Improve coverage</h3>
-<p>Does RSelenium work on remote virtual machines? Only if they have a real browser installed.</p>
-<p><a href="https://cran.r-project.org/web/packages/RSelenium/vignettes/shinytesting.html" class="uri">https://cran.r-project.org/web/packages/RSelenium/vignettes/shinytesting.html</a>, local copy via <code>vignette("shinytesting", "RSelenium")</code>.</p>
+<a href="#test-shiny" class="anchor"></a>Test Shiny</h3>
+<p>Use <a href="https://rstudio.github.io/shinytest/articles/shinytest.html">shinytest</a></p>
 </div>
 </div>
 </div>
