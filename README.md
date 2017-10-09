@@ -61,4 +61,4 @@ The [Enron corpus](https://figshare.com/articles/Enron_Spreadsheets_and_Emails/1
 Inspiration
 -----------
 
-The [research](https://drive.google.com/file/d/0B79P2Uym3JjvMjlaWWtnTWRLQmc/view?usp=sharing) Felienne Hermans inspired this package, and the related [XLParser](https://github.com/spreadsheetlab/XLParser) project was a great help in creating the grammar.
+[Research](https://drive.google.com/file/d/0B79P2Uym3JjvMjlaWWtnTWRLQmc/view?usp=sharing) by Felienne Hermans inspired this package, and the related [XLParser](https://github.com/spreadsheetlab/XLParser) project was a great help in creating the grammar.
