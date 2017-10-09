@@ -3,4 +3,17 @@ sudo: true
 cache: packages
 apt_packages:
   - libudunits2-dev
+r_binary_packages:
+  - testthat
+  - covr
+  - knitr
+  - rmarkdown
+  - tibble
+  - ggplot2
+  - igraph
+  - units
+  - ggrepel
+  - gridextra
+  - viridis
+  - shiny
 warnings_are_errors: false
