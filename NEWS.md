@@ -1,3 +1,7 @@
+# lexl 0.1.0
+
+* CRAN release
+
 # lexl 0.0.1
 
 * Removed Excel formula parsing from [tidyxl](https://nacnudus.github.io/tidyxl)

@@ -1,6 +1,6 @@
 Package: lexl
 Title: Tokenise Excel Formulas
-Version: 0.0.1
+Version: 0.1.0
 Authors@R: person("Duncan", "Garmonsway", email = "nacnudus@gmail.com", role = c("aut", "cre"))
 Description: Tokenises Excel formulas and visualises their parse tree.  The
     tokens and parse trees are designed to support analysis, rather than
