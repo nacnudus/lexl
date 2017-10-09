@@ -5,7 +5,7 @@
 #' shiny app to demonstrate tokenizing an Excel formula with `lex_xl()` and
 #' plotting the parse tree with `plot.lexl()`
 #'
-#' @seealso [lexl::lex_xl()], [`plot()`][lexl::lexl_igraph()]
+#' @seealso [lexl::lex_xl()], [`plot.lexl()`], [lexl::lexl_igraph()]
 #' @export
 #' @examples
 #' \dontrun{

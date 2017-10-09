@@ -74,7 +74,7 @@
 #' giving the token itself, its type (e.g.  `number`, or `error`), and its
 #' level.
 #'
-#' @seealso [`plot()`][lexl::lexl_igraph()], [lexl::demo_lexl()]
+#' @seealso [`plot.lexl()`], [lexl::lexl_igraph()], [lexl::demo_lexl()]
 #' @export
 #' @examples
 #' # All explicit cell references/addresses are returned as a single 'ref'

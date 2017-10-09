@@ -5,6 +5,7 @@
 \alias{plot.lexl}
 \alias{lexl_edges}
 \alias{lexl_vertices}
+\alias{lexl_igraph}
 \title{Plot the parse tree of a formula}
 \usage{
 \method{plot}{lexl}(x, ...)

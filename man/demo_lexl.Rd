@@ -18,5 +18,5 @@ plotting the parse tree with \code{plot.lexl()}
 }
 }
 \seealso{
-\code{\link[lexl:lex_xl]{lexl::lex_xl()}}, \code{\link[lexl:lexl_igraph]{plot()}}
+\code{\link[lexl:lex_xl]{lexl::lex_xl()}}, \code{\link[=plot.lexl]{plot.lexl()}}, \code{\link[lexl:lexl_igraph]{lexl::lexl_igraph()}}
 }

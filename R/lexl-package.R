@@ -18,10 +18,14 @@ NULL
 #' @section Functions:
 #' * [lexl::lex_xl()] Tokenise (lex) an Excel formula.
 #' * [lexl::is_range()] Test whether an Excel formula refers to a range of cells
-#' * [`plot()`][lexl::lexl_igraph()] Draw a simple tree plot of a parse tree from [lexl::lex_xl()]
-#' * [lexl::lexl_edges()] Utility function used by [`plot()`][lexl::lexl_igraph()]
-#' * [lexl::lexl_vertices()] Utility function used by [`plot()`][lexl::lexl_igraph()]
-#' * [lexl::lexl_igraph()] Utility function used by [`plot()`][lexl::lexl_igraph()]
+#' * [`plot.lexl()`], [lexl::lexl_igraph()] Draw a simple tree plot of a parse
+#'     tree from [lexl::lex_xl()]
+#' * [lexl::lexl_edges()] Utility function used by [`plot.lexl()`] and
+#'     [lexl::lexl_igraph()]
+#' * [lexl::lexl_vertices()] Utility function used by [`plot.lexl()`] and
+#'     [lexl::lexl_igraph()]
+#' * [lexl::lexl_igraph()] Utility function used by [`plot.lexl()`] and
+#'     [lexl::lexl_igraph()]
 #' * [lexl::demo_lexl()] Shiny app to tokenise formulas and view their parse
 #' tree
 #'
