@@ -12,7 +12,7 @@
 #'   demo_lexl()
 #' }
 demo_lexl <- function() {
-  if (!requireNamespace("shiny", quietly = TRUE)
+  if (!requireNamespace("shiny", quietly = TRUE) # nocov start
       && requireNamespace("igraph", quietly = TRUE)
       && requireNamespace("ggraph", quietly = TRUE)) {
     stop("demo_lexl() requires the packages 'shiny', 'igraph', and 'ggraph'.",
@@ -51,5 +51,5 @@ demo_lexl <- function() {
           plot.lexl(lex_xl(input$formula))
         })
       })
-  }
+  } # nocov end
 }

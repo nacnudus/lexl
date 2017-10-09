@@ -40,8 +40,8 @@ plot.lexl <- function(x, ...) {
       ggraph::geom_node_label(ggplot2::aes_string(label = "label")) +
       ggplot2::theme_void()
   } else {
-    stop("plot.lexl() requires the packages 'igraph' and 'ggraph'.",
-         call. = FALSE)
+    stop("plot.lexl() requires the packages 'igraph' and 'ggraph'.", # nocov
+         call. = FALSE)                                              # nocov
   }
 }
 
@@ -90,6 +90,6 @@ lexl_igraph <- function(x) {
     igraph::V(graph)$type <- vertices$type
     graph
   } else {
-    stop("lexl_igraph() requires the packages 'igraph'.", call. = FALSE)
+    stop("lexl_igraph() requires the packages 'igraph'.", call. = FALSE) # nocov
   }
 }
