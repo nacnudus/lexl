@@ -170,3 +170,9 @@ Use [shinytest](https://rstudio.github.io/shinytest/articles/shinytest.html)
 I gave up trying to build it in all Travis and AppVeyor environments, invariably
 because of problems with `ggraph`, so now it is only built in the same
 environments as `ggraph`'s own continuous integration.
+
+## Not on CRAN yet
+
+CRAN thought the package was too small to be distinct from
+[tidyxl](https://nacnudus.github.io/tidyxl), which is probably true at the
+moment.  When the package has grow a bit, I'll resubmit
