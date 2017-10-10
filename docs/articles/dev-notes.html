@@ -70,7 +70,7 @@
     <div class="page-header toc-ignore">
       <h1>Developer Notes</h1>
             
-            <h4 class="date">2017-10-09</h4>
+            <h4 class="date">2017-10-10</h4>
           </div>
 
     
@@ -183,6 +183,16 @@ workbook[[cell_id]] &lt;-<span class="st"> </span><span class="kw"><a href="http
 <p>Use <a href="https://rstudio.github.io/shinytest/articles/shinytest.html">shinytest</a></p>
 </div>
 </div>
+<div id="continuous-integration" class="section level2">
+<h2 class="hasAnchor">
+<a href="#continuous-integration" class="anchor"></a>Continuous Integration</h2>
+<p>I gave up trying to build it in all Travis and AppVeyor environments, invariably because of problems with <code>ggraph</code>, so now it is only built in the same environments as <code>ggraph</code>’s own continuous integration.</p>
+</div>
+<div id="not-on-cran-yet" class="section level2">
+<h2 class="hasAnchor">
+<a href="#not-on-cran-yet" class="anchor"></a>Not on CRAN yet</h2>
+<p>CRAN thought the package was too small to be distinct from <a href="https://nacnudus.github.io/tidyxl">tidyxl</a>, which is probably true at the moment. When the package has grow a bit, I’ll resubmit</p>
+</div>
 </div>
   </div>
 
@@ -194,6 +204,8 @@ workbook[[cell_id]] &lt;-<span class="st"> </span><span class="kw"><a href="http
 <li><a href="#what-does-it-do">What does it do?</a></li>
       <li><a href="#how-does-tokenise-formulas">How does tokenise formulas?</a></li>
       <li><a href="#todo">TODO</a></li>
+      <li><a href="#continuous-integration">Continuous Integration</a></li>
+      <li><a href="#not-on-cran-yet">Not on CRAN yet</a></li>
       </ul>
 </div>
       </div>
