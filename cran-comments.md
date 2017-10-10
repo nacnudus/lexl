@@ -1,3 +1,20 @@
+## Resubmission
+This is a resubmission. In this version I have:
+
+* Written package names and software names in single quotes (e.g. 'Excel') in
+  title and description.
+
+* Used if(interactive()){examples} for interactive examples instead of
+  \dontrun{}.
+
+The reviewer asked:
+
+> why don't you include these functions in your package 'tidyxl'?
+
+These functions were in the dev version of tidyxl, but Jenny Bryan suggested
+that they be put into a separate package, to be a potential lightweight import
+in cellranger.
+
 ## Test environments
 
 ### Local
