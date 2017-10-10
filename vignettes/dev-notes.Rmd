@@ -164,3 +164,9 @@ their value.  Fortunately these values are written into the local file.
 ### Test Shiny
 
 Use [shinytest](https://rstudio.github.io/shinytest/articles/shinytest.html)
+
+## Continuous Integration
+
+I gave up trying to build it in all Travis and AppVeyor environments, invariably
+because of problems with `ggraph`, so now it is only built in the same
+environments as `ggraph`'s own continuous integration.
