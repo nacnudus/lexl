@@ -13,7 +13,7 @@ shiny app to demonstrate tokenizing an Excel formula with \code{lex_xl()} and
 plotting the parse tree with \code{plot.lexl()}
 }
 \examples{
-\dontrun{
+if(interactive()) {
   demo_lexl()
 }
 }

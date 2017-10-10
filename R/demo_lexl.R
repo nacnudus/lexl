@@ -8,7 +8,7 @@
 #' @seealso [lexl::lex_xl()], [`plot.lexl()`], [lexl::lexl_igraph()]
 #' @export
 #' @examples
-#' \dontrun{
+#' if(interactive()) {
 #'   demo_lexl()
 #' }
 demo_lexl <- function() {
